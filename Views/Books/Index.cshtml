@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Ilisan_Iosif_Alexandru_Lab2.Models.Book>
+
+<h2>Cărțile Disponibile</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Titlu</th>
+            <th>Autor</th>
+            <th>Gen</th>
+            <th>Preț</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td>@book.Title</td>
+                <td>
+                    @if (book.Author != null)
+                    {
+                        @book.Author.FirstName @book.Author.LastName
+                    }
+                    else
+                    {
+                        <span>Autor necunoscut</span>
+                    }
+                </td>
+                <td>
+                    @if (book.Genre != null)
+                    {
+                        @book.Genre.Name
+                    }
+                    else
+                    {
+                        <span>Gen necunoscut</span>
+                    }
+                </td>
+                <td>@book.Price</td>
+            </tr>
+        }
+    </tbody>
+</table>
